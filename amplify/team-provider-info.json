@@ -1,0 +1,33 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-couchbuddy-dev-212705-authRole",
+      "UnauthRoleArn": "arn:aws:iam::766223306101:role/amplify-couchbuddy-dev-212705-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::766223306101:role/amplify-couchbuddy-dev-212705-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-couchbuddy-dev-212705-deployment",
+      "UnauthRoleName": "amplify-couchbuddy-dev-212705-unauthRole",
+      "StackName": "amplify-couchbuddy-dev-212705",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:766223306101:stack/amplify-couchbuddy-dev-212705/428316b0-3164-11eb-bc36-0ae47d245972",
+      "AmplifyAppId": "d2mx3spnxi1zqz"
+    },
+    "categories": {
+      "auth": {
+        "couchbuddy887ff672": {}
+      }
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-couchbuddy-prod-212849-authRole",
+      "UnauthRoleArn": "arn:aws:iam::766223306101:role/amplify-couchbuddy-prod-212849-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::766223306101:role/amplify-couchbuddy-prod-212849-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-couchbuddy-prod-212849-deployment",
+      "UnauthRoleName": "amplify-couchbuddy-prod-212849-unauthRole",
+      "StackName": "amplify-couchbuddy-prod-212849",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:766223306101:stack/amplify-couchbuddy-prod-212849/80a045d0-3164-11eb-bbb2-0af4f72f1048",
+      "AmplifyAppId": "d2mx3spnxi1zqz"
+    }
+  }
+}
