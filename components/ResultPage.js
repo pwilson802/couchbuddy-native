@@ -135,7 +135,7 @@ function ResultsPage({ searchDetails, setPage }) {
             renderItem={renderMovieCard}
             keyExtractor={(item) => item}
           />
-          <TouchableOpacity onPress={nextMovies}>
+          <TouchableOpacity onPress={nextMovies} style={styles.buttonBox}>
             <Text>Next</Text>
           </TouchableOpacity>
         </View>
@@ -145,6 +145,14 @@ function ResultsPage({ searchDetails, setPage }) {
 }
 
 export default ResultsPage;
+
+const styles = StyleSheet.create({
+  buttonBox: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 function shuffle(data) {
   // shuffle the questions using Fisher-Yates Algorithm
