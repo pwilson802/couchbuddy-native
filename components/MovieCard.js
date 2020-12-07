@@ -55,7 +55,11 @@ function MovieCard({ id, allProviderData, providers }) {
 
   const renderProvider = (item) => {
     console.log("provider path", item);
-    return <Image style={styles.providerImage} source={item.item} />;
+    return (
+      <View>
+        <Image style={styles.providerImage} source={item.item} />
+      </View>
+    );
   };
 
   return (
@@ -71,10 +75,7 @@ function MovieCard({ id, allProviderData, providers }) {
             <Text style={styles.overview}>{overview}</Text>
             <View style={styles.providerWrapper}>
               <FlatList
-                contentContainerStyle={{
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                }}
+                horizontal={true}
                 data={providerImages}
                 renderItem={renderProvider}
                 keyExtractor={(item) => item}
