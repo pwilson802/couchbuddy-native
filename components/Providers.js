@@ -5,9 +5,11 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  Image,
 } from "react-native";
 
 function Providers({ selectedProviders, handleProvider, allProviderData }) {
+  console.log(allProviderData);
   const providerIDs = Object.keys(selectedProviders);
   const renderItem = ({ item }) => {
     return (
@@ -15,14 +17,22 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
         onPress={() => handleProvider(item)}
         style={selectedProviders[item] ? styles.buttonSelected : styles.button}
       >
-        <Text>{item}</Text>
+        <Image
+          style={styles.providerImage}
+          source={allProviderData[item]["logo"]}
+        />
       </TouchableOpacity>
     );
   };
   return (
     <View style={styles.genreWrapper}>
       <FlatList
-        contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap" }}
+        contentContainerStyle={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
         data={providerIDs}
         renderItem={renderItem}
         keyExtractor={(item) => item}
@@ -36,23 +46,24 @@ export default Providers;
 
 const styles = StyleSheet.create({
   button: {
-    padding: 10,
     borderRadius: 10,
     margin: 10,
-    borderColor: "black",
-    borderWidth: 4,
+    borderWidth: 0,
     display: "inline",
+    opacity: 0.5,
   },
   buttonSelected: {
-    padding: 10,
     borderRadius: 10,
     margin: 10,
-    borderColor: "black",
-    borderWidth: 4,
-    backgroundColor: "orange",
+    borderWidth: 0,
     display: "inline",
   },
   genreWrapper: {
     flexDirection: "row",
+  },
+  providerImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 10,
   },
 });

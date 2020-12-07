@@ -10,6 +10,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import { getCouchmovie, getGenre, listMovieLengths } from "../graphql/queries";
 import Logo from "./Logo";
 import MovieCard from "./MovieCard";
+import SpinnerMovie from "./SpinnerMovie";
 
 async function getMoviesByLength(duration) {
   let firstQuery = await API.graphql({
@@ -128,7 +129,7 @@ function ResultsPage({ searchDetails, setPage }) {
 
   return (
     <View>
-      {loaded && (
+      {loaded ? (
         <View>
           <FlatList
             data={activeMovies}
@@ -139,6 +140,8 @@ function ResultsPage({ searchDetails, setPage }) {
             <Text>Next</Text>
           </TouchableOpacity>
         </View>
+      ) : (
+        <SpinnerMovie />
       )}
     </View>
   );

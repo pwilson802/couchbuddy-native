@@ -54,7 +54,7 @@ async function getAllProviderData() {
     let providerLogo = curr["providerLogo"];
     acc[providerID] = {};
     acc[providerID]["name"] = providerName;
-    acc[providerID]["logo"] = providerLogo;
+    acc[providerID]["logo"] = "http://image.tmdb.org/t/p/w185" + providerLogo;
     return acc;
   }, {});
   return result;
@@ -87,6 +87,7 @@ function SearchPage({ handleSearchDetails, setPage }) {
     setLocalProviderMovies(localProviderData);
     setSelectedProviders(providersObj);
     setAllProviderData(allProviderData);
+    setLoaded(true);
   }
 
   function handleLocation(loc) {
@@ -134,8 +135,9 @@ function SearchPage({ handleSearchDetails, setPage }) {
   };
 
   useEffect(() => {
-    configureProviders(location);
+    setLoaded(false);
     setSelectedGenres(genreObj);
+    configureProviders(location);
   }, [location]);
 
   //   console.log("selectedProviders", selectedProviders);
@@ -143,21 +145,27 @@ function SearchPage({ handleSearchDetails, setPage }) {
   //   console.log("allProviderData", allProviderData);
 
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.nav}>
-        <Logo />
-        <LocationSelect handleLocation={handleLocation} location={location} />
+    <View>
+      <View style={styles.wrapper}>
+        <View style={styles.nav}>
+          <Logo />
+          <LocationSelect handleLocation={handleLocation} location={location} />
+        </View>
+        {loaded && (
+          <View>
+            <Genres selectedGenres={selectedGenres} handleGenre={handleGenre} />
+            <Providers
+              selectedProviders={selectedProviders}
+              handleProvider={handleProvider}
+              allProviderData={allProviderData}
+            />
+            <Duration duration={duration} handleDuration={handleDuration} />
+            <TouchableOpacity onPress={handleSubmit}>
+              <Text>Get Movies</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
-      <Genres selectedGenres={selectedGenres} handleGenre={handleGenre} />
-      <Providers
-        selectedProviders={selectedProviders}
-        handleProvider={handleProvider}
-        allProviderData={allProviderData}
-      />
-      <Duration duration={duration} handleDuration={handleDuration} />
-      <TouchableOpacity onPress={handleSubmit}>
-        <Text>Get Movies</Text>
-      </TouchableOpacity>
     </View>
   );
 }

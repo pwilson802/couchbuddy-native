@@ -15,14 +15,25 @@ function Genres({ selectedGenres, handleGenre }) {
         onPress={() => handleGenre(item)}
         style={selectedGenres[item] ? styles.buttonSelected : styles.button}
       >
-        <Text>{item}</Text>
+        <Text
+          style={
+            selectedGenres[item] ? styles.buttonTextSelected : styles.buttonText
+          }
+        >
+          {item}
+        </Text>
       </TouchableOpacity>
     );
   };
   return (
     <View style={styles.genreWrapper}>
       <FlatList
-        contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap" }}
+        contentContainerStyle={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
         data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item}
@@ -39,20 +50,27 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     margin: 10,
-    borderColor: "black",
-    borderWidth: 4,
+    borderColor: "#D90404",
+    borderWidth: 1,
     display: "inline",
+    color: "#D90404",
   },
   buttonSelected: {
     padding: 10,
     borderRadius: 10,
     margin: 10,
-    borderColor: "black",
-    borderWidth: 4,
-    backgroundColor: "orange",
+    borderColor: "#590202",
+    borderWidth: 1,
+    backgroundColor: "#590202",
     display: "inline",
   },
   genreWrapper: {
     flexDirection: "row",
+  },
+  buttonText: {
+    color: "#D90404",
+  },
+  buttonTextSelected: {
+    color: "#D90404",
   },
 });

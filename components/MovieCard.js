@@ -43,8 +43,7 @@ function MovieCard({ id, allProviderData, providers }) {
       const imagePath = "http://image.tmdb.org/t/p/w185" + image;
       setImage(imagePath);
       const providerLogos = providers.map(
-        (item) =>
-          "http://image.tmdb.org/t/p/w185" + allProviderData[item]["logo"]
+        (item) => allProviderData[item]["logo"]
       );
       console.log("providerLogos", providerLogos);
       setProviderImages(providerLogos);
