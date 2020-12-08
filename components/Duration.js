@@ -12,6 +12,7 @@ function Duration({ duration, handleDuration }) {
         maximumValue={400}
         value={duration}
         onValueChange={(item) => handleDuration(item)}
+        tapToSeek={true}
       />
     </View>
   );
