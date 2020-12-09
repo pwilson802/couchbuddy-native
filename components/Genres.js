@@ -52,25 +52,22 @@ const styles = StyleSheet.create({
     margin: 10,
     borderColor: "#D90404",
     borderWidth: 1,
-    display: "inline",
-    color: "#D90404",
   },
   buttonSelected: {
     padding: 10,
     borderRadius: 10,
     margin: 10,
-    borderColor: "#590202",
+    borderColor: "#D90404",
     borderWidth: 1,
-    backgroundColor: "#590202",
-    display: "inline",
+    backgroundColor: "#D90404",
   },
   genreWrapper: {
     flexDirection: "row",
   },
   buttonText: {
-    color: "#D90404",
+    color: "black",
   },
   buttonTextSelected: {
-    color: "#D90404",
+    color: "black",
   },
 });

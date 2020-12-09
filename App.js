@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import Amplify from "aws-amplify";
 import config from "./aws-exports";
 import { API, graphqlOperation } from "aws-amplify";
@@ -11,6 +11,7 @@ import ResultsPage from "./components/ResultPage";
 
 export default function App() {
   const [page, setPage] = useState("SearchPage");
+  const [width, setWidth] = useState(Dimensions.get("window").width);
   const [searchDetails, setSearchDetails] = useState({});
 
   const handleSearchDetails = (item) => {
@@ -21,16 +22,31 @@ export default function App() {
     setPage(page);
   };
 
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(Dimensions.get("window").width);
+    // subscribe to window resize event "onComponentDidMount"
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      // unsubscribe "onComponentDestroy"
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);
+
   return (
     <View style={styles.container}>
       {page === "SearchPage" && (
         <SearchPage
           handleSearchDetails={handleSearchDetails}
           setPage={setPage}
+          width={width}
         />
       )}
       {page === "ResultsPage" && (
-        <ResultsPage searchDetails={searchDetails} setPage={setPage} />
+        <ResultsPage
+          searchDetails={searchDetails}
+          setPage={setPage}
+          width={width}
+        />
       )}
     </View>
   );

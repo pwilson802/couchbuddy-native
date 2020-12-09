@@ -7,7 +7,8 @@ import LocationSelect from "./LocationSelect";
 import Genres from "./Genres";
 import Providers from "./Providers";
 import Duration from "./Duration";
-import Slider from "@react-native-community/slider";
+import DropDownGenres from "./DropDownGenres";
+import DropDownProviders from "./DropDownProviders";
 
 const genreObj = {
   Action: false,
@@ -71,7 +72,7 @@ function makeSelectedProviders(selectedProviders, localProviderMovies) {
   return selected;
 }
 
-function SearchPage({ handleSearchDetails, setPage }) {
+function SearchPage({ handleSearchDetails, setPage, width }) {
   const [location, setLocation] = useState("AU");
   const [selectedGenres, setSelectedGenres] = useState(genreObj);
   const [selectedProviders, setSelectedProviders] = useState({});
@@ -149,27 +150,45 @@ function SearchPage({ handleSearchDetails, setPage }) {
     <View>
       <View style={styles.wrapper}>
         <View style={styles.nav}>
-          <Logo />
-          <LocationSelect handleLocation={handleLocation} location={location} />
+          <View style={styles.logoWrap}>
+            <Logo />
+          </View>
+          <View style={styles.locationWrap}>
+            <LocationSelect
+              handleLocation={handleLocation}
+              location={location}
+            />
+          </View>
         </View>
-        <Slider
-          style={{ width: 200, height: 40 }}
-          minimumValue={0}
-          maximumValue={1}
-          minimumTrackTintColor="#FFFFFF"
-          maximumTrackTintColor="#000000"
-        />
         {loaded && (
           <View>
-            <Genres selectedGenres={selectedGenres} handleGenre={handleGenre} />
-            <Providers
-              selectedProviders={selectedProviders}
-              handleProvider={handleProvider}
-              allProviderData={allProviderData}
-            />
+            {width < 700 ? (
+              <DropDownGenres
+                selectedGenres={selectedGenres}
+                handleGenre={handleGenre}
+              />
+            ) : (
+              <Genres
+                selectedGenres={selectedGenres}
+                handleGenre={handleGenre}
+              />
+            )}
+            {width < 700 ? (
+              <DropDownProviders
+                selectedProviders={selectedProviders}
+                handleProvider={handleProvider}
+                allProviderData={allProviderData}
+              />
+            ) : (
+              <Providers
+                selectedProviders={selectedProviders}
+                handleProvider={handleProvider}
+                allProviderData={allProviderData}
+              />
+            )}
             <Duration duration={duration} handleDuration={handleDuration} />
             <TouchableOpacity onPress={handleSubmit}>
-              <Text>Get Movies</Text>
+              <Text style={styles.submitButton}>Get Movies</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -186,8 +205,26 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   nav: {
+    margin: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    flex: 1,
+  },
+  locationWrap: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    background: "#ddd",
+  },
+  submitButton: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    fontSize: 16,
+    borderRadius: 10,
+    borderColor: "#D90404",
+    borderWidth: 1,
+    backgroundColor: "#D90404",
+    alignSelf: "center",
   },
 });

@@ -59,7 +59,7 @@ function reduceShuffleMovies(movies) {
   return movies.slice(0, 99);
 }
 
-function ResultsPage({ searchDetails, setPage }) {
+function ResultsPage({ searchDetails, setPage, width }) {
   const [loaded, setLoaded] = useState(false);
   const [movies, setMovies] = useState([]);
   const [activeMovies, setActiveMovies] = useState([]);

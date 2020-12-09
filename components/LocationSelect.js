@@ -6,7 +6,7 @@ function LocationSelect({ handleLocation, location }) {
   return (
     <Picker
       selectedValue={location}
-      style={{ height: 50, width: 50 }}
+      style={styles.locationSelect}
       onValueChange={(itemValue, indexItem) => handleLocation(itemValue)}
     >
       <Picker.Item label="Australia" value="AU" />
@@ -16,3 +16,9 @@ function LocationSelect({ handleLocation, location }) {
 }
 
 export default LocationSelect;
+
+const styles = StyleSheet.create({
+  locationSelect: {
+    width: 80,
+  },
+});
