@@ -94,6 +94,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    borderColor: "black",
+    marginTop: 10,
   },
   mobileImage: {
     width: 92.5,
@@ -115,6 +117,8 @@ const styles = StyleSheet.create({
   providerImage: {
     width: 40,
     height: 40,
+    marginLeft: 3,
+    borderRadius: 10,
   },
   overview: {
     paddingBottom: 5,

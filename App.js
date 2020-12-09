@@ -8,7 +8,6 @@ import { getCouchmovie, getWatchOn, listMovieLengths } from "./graphql/queries";
 Amplify.configure(config);
 import SearchPage from "./components/SearchPage";
 import ResultsPage from "./components/ResultPage";
-import Slider from "@react-native-community/slider";
 
 export default function App() {
   const [page, setPage] = useState("SearchPage");
@@ -35,12 +34,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Slider
-        style={styles.slider}
-        minimumValue={0}
-        maximumValue={400}
-        step={1}
-      />
       {page === "SearchPage" && (
         <SearchPage
           handleSearchDetails={handleSearchDetails}
@@ -63,12 +56,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-  },
-  slider: {
-    width: 300,
-    opacity: 1,
-    height: 50,
-    marginTop: 10,
-    marginBottom: -10,
   },
 });

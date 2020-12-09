@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignSelf: "center",
+    touchAction: "none",
+    overflow: "hidden",
+    overscrollBehavior: "none",
   },
   durationText: {
     marginRight: 10,
