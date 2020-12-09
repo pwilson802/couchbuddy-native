@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
     height: 50,
     marginTop: 10,
     marginBottom: -10,
+    touchAction: "none",
+    overflow: "hidden",
+    overscrollBehavior: "none",
   },
   durationText: {
     alignSelf: "center",
