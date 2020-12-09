@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-// import Slider from "@react-native-community/slider";
-import { Slider } from "@miblanchard/react-native-slider";
+import Slider from "@react-native-community/slider";
 
 function Duration({ duration, handleDuration }) {
   return (
@@ -9,7 +8,7 @@ function Duration({ duration, handleDuration }) {
       <View>
         <Text>Max {duration} minutes</Text>
         <Slider
-          style={{ width: 200, height: 40, color: "#F0A24F" }}
+          style={{ width: 200, height: 40 }}
           minimumValue={0}
           maximumValue={400}
           value={duration}

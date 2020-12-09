@@ -7,6 +7,7 @@ import LocationSelect from "./LocationSelect";
 import Genres from "./Genres";
 import Providers from "./Providers";
 import Duration from "./Duration";
+import Slider from "@react-native-community/slider";
 
 const genreObj = {
   Action: false,
@@ -151,6 +152,13 @@ function SearchPage({ handleSearchDetails, setPage }) {
           <Logo />
           <LocationSelect handleLocation={handleLocation} location={location} />
         </View>
+        <Slider
+          style={{ width: 200, height: 40 }}
+          minimumValue={0}
+          maximumValue={1}
+          minimumTrackTintColor="#FFFFFF"
+          maximumTrackTintColor="#000000"
+        />
         {loaded && (
           <View>
             <Genres selectedGenres={selectedGenres} handleGenre={handleGenre} />
