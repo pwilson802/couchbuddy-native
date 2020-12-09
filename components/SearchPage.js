@@ -9,6 +9,7 @@ import Providers from "./Providers";
 import Duration from "./Duration";
 import DropDownGenres from "./DropDownGenres";
 import DropDownProviders from "./DropDownProviders";
+import TheMovieDatabase from "./TheMovieDatabase";
 
 const genreObj = {
   Action: false,
@@ -190,6 +191,7 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
             <TouchableOpacity onPress={handleSubmit}>
               <Text style={styles.submitButton}>Get Movies</Text>
             </TouchableOpacity>
+            <TheMovieDatabase />
           </View>
         )}
       </View>
