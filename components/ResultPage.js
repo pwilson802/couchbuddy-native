@@ -136,9 +136,17 @@ function ResultsPage({ searchDetails, setPage, width }) {
             renderItem={renderMovieCard}
             keyExtractor={(item) => item}
           />
-          <TouchableOpacity onPress={nextMovies} style={styles.buttonBox}>
-            <Text>Next</Text>
-          </TouchableOpacity>
+          <View style={styles.buttonBox}>
+            <TouchableOpacity onPress={nextMovies} style={styles.button}>
+              <Text>More</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setPage("SearchPage")}
+              style={styles.button}
+            >
+              <Text>Home</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       ) : (
         <SpinnerMovie />
@@ -154,6 +162,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+  },
+  button: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    fontSize: 20,
+    borderRadius: 10,
+    borderColor: "#D90404",
+    borderWidth: 1,
+    backgroundColor: "#D90404",
+    marginLeft: 20,
   },
 });
 
