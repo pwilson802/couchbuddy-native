@@ -26,7 +26,22 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
   };
   return (
     <View style={styles.genreWrapper}>
-      <FlatList
+      {providerIDs.map((item) => {
+        return (
+          <TouchableOpacity
+            onPress={() => handleProvider(item)}
+            style={
+              selectedProviders[item] ? styles.buttonSelected : styles.button
+            }
+          >
+            <Image
+              style={styles.providerImage}
+              source={allProviderData[item]["logo"]}
+            />
+          </TouchableOpacity>
+        );
+      })}
+      {/* <FlatList
         contentContainerStyle={{
           flexDirection: "row",
           flexWrap: "wrap",
@@ -36,7 +51,7 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
         data={providerIDs}
         renderItem={renderItem}
         keyExtractor={(item) => item}
-      />
+      /> */}
     </View>
   );
 }
@@ -59,6 +74,9 @@ const styles = StyleSheet.create({
   },
   genreWrapper: {
     flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
   },
   providerImage: {
     width: 50,

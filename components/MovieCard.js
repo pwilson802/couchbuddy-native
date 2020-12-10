@@ -19,7 +19,7 @@ async function getMovieDetails(id) {
   return movieDetails.data.getCouchmovie;
 }
 
-function MovieCard({ id, allProviderData, providers, ScreenSize }) {
+function MovieCard({ id, allProviderData, providers, screenSize }) {
   const [loaded, setLoaded] = useState(false);
   const [title, setTitle] = useState();
   const [overview, setOverview] = useState();
@@ -64,7 +64,13 @@ function MovieCard({ id, allProviderData, providers, ScreenSize }) {
   return (
     <View>
       {loaded && (
-        <View style={styles.cardWrapperLarge}>
+        <View
+          style={
+            screenSize == "large"
+              ? styles.cardWrapperLarge
+              : styles.cardWrapperSmall
+          }
+        >
           <View style={styles.imageBox}>
             <Image style={styles.mobileImage} source={image} />
           </View>
@@ -100,6 +106,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 2,
     width: "70%",
+    alignSelf: "center",
+  },
+  cardWrapperSmall: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+    marginTop: 8,
+    borderWidth: 1,
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    width: "95%",
     alignSelf: "center",
   },
   mobileImage: {
