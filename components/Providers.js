@@ -17,11 +17,10 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
         onPress={() => handleProvider(item)}
         style={selectedProviders[item] ? styles.buttonSelected : styles.button}
       >
-        {/* <Image
+        <Image
           style={styles.providerImage}
           source={allProviderData[item]["logo"]}
-            /> */}
-        <Text>{item}</Text>
+        />
       </TouchableOpacity>
     );
   };
@@ -37,6 +36,7 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
         data={providerIDs}
         renderItem={renderItem}
         keyExtractor={(item) => item}
+        numColumns={3}
       />
     </View>
   );
@@ -49,16 +49,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     borderWidth: 0,
+    display: "inline",
     opacity: 0.5,
   },
   buttonSelected: {
     borderRadius: 10,
     margin: 10,
     borderWidth: 0,
+    display: "inline",
   },
   genreWrapper: {
     flexDirection: "row",
-    flex: 1,
   },
   providerImage: {
     width: 50,

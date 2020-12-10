@@ -178,11 +178,11 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
                 allProviderData={allProviderData}
               />
             )}
-            {/* <Duration duration={duration} handleDuration={handleDuration} /> */}
-            {/* <TouchableOpacity onPress={handleSubmit}>
+            <Duration duration={duration} handleDuration={handleDuration} />
+            <TouchableOpacity onPress={handleSubmit}>
               <Text style={styles.submitButton}>Get Movies</Text>
             </TouchableOpacity>
-            <TheMovieDatabase /> */}
+            <TheMovieDatabase />
           </View>
         )}
       </View>

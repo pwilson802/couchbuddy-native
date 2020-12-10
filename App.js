@@ -50,6 +50,7 @@ export default function App() {
           handleSearchDetails={handleSearchDetails}
           setPage={setPage}
           width={width}
+          screenSize={screenSize}
         />
       )}
       {page === "ResultsPage" && (
@@ -57,6 +58,7 @@ export default function App() {
           searchDetails={searchDetails}
           setPage={setPage}
           width={width}
+          screenSize={screenSize}
         />
       )}
     </View>

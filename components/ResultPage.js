@@ -59,7 +59,7 @@ function reduceShuffleMovies(movies) {
   return movies.slice(0, 99);
 }
 
-function ResultsPage({ searchDetails, setPage, width }) {
+function ResultsPage({ searchDetails, setPage, width, screenSize }) {
   const [loaded, setLoaded] = useState(false);
   const [movies, setMovies] = useState([]);
   const [activeMovies, setActiveMovies] = useState([]);
@@ -123,6 +123,7 @@ function ResultsPage({ searchDetails, setPage, width }) {
         id={item.id}
         providers={item.providers}
         allProviderData={allProviderData}
+        screenSize={screenSize}
       ></MovieCard>
     );
   };

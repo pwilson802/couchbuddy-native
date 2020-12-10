@@ -19,7 +19,7 @@ async function getMovieDetails(id) {
   return movieDetails.data.getCouchmovie;
 }
 
-function MovieCard({ id, allProviderData, providers }) {
+function MovieCard({ id, allProviderData, providers, ScreenSize }) {
   const [loaded, setLoaded] = useState(false);
   const [title, setTitle] = useState();
   const [overview, setOverview] = useState();
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     width: "70%",
   },
   title: {
-    fontSize: "1.5rem",
+    fontSize: 20,
   },
   runtime: {
     color: "grey",
