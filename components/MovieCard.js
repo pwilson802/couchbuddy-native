@@ -64,7 +64,7 @@ function MovieCard({ id, allProviderData, providers, ScreenSize }) {
   return (
     <View>
       {loaded && (
-        <View style={styles.cardWrapper}>
+        <View style={styles.cardWrapperLarge}>
           <View style={styles.imageBox}>
             <Image style={styles.mobileImage} source={image} />
           </View>
@@ -90,16 +90,17 @@ function MovieCard({ id, allProviderData, providers, ScreenSize }) {
 export default MovieCard;
 
 const styles = StyleSheet.create({
-  cardWrapper: {
+  cardWrapperLarge: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     borderColor: "black",
-    marginTop: 10,
+    marginTop: 8,
     borderWidth: 1,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginHorizontal: 40,
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    width: "70%",
+    alignSelf: "center",
   },
   mobileImage: {
     width: 92.5,

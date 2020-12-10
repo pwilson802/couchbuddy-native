@@ -36,7 +36,6 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
         data={providerIDs}
         renderItem={renderItem}
         keyExtractor={(item) => item}
-        numColumns={3}
       />
     </View>
   );
