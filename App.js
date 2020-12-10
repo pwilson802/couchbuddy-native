@@ -12,6 +12,7 @@ import ResultsPage from "./components/ResultPage";
 export default function App() {
   const [page, setPage] = useState("SearchPage");
   const [width, setWidth] = useState(Dimensions.get("window").width);
+  const [screenSize, setScreenSize] = useState("small");
   const [searchDetails, setSearchDetails] = useState({});
 
   const handleSearchDetails = (item) => {
@@ -23,7 +24,16 @@ export default function App() {
   };
 
   useEffect(() => {
-    const handleResizeWindow = () => setWidth(Dimensions.get("window").width);
+    const handleResizeWindow = () => {
+      const newWidth = Dimensions.get("window").width;
+      setWidth(newWidth);
+      if (newWidth < 600) {
+        setScreenSize("small");
+      } else {
+        setScreenSize("large");
+      }
+    };
+    handleResizeWindow();
     // subscribe to window resize event "onComponentDidMount"
     window.addEventListener("resize", handleResizeWindow);
     return () => {
@@ -34,6 +44,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text>{screenSize}</Text>
       {page === "SearchPage" && (
         <SearchPage
           handleSearchDetails={handleSearchDetails}

@@ -74,7 +74,7 @@ function makeSelectedProviders(selectedProviders, localProviderMovies) {
 }
 
 function SearchPage({ handleSearchDetails, setPage, width }) {
-  const [location, setLocation] = useState("AU");
+  const [location, setLocation] = useState("US");
   const [selectedGenres, setSelectedGenres] = useState(genreObj);
   const [selectedProviders, setSelectedProviders] = useState({});
   // move this line below maybe?
