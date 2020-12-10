@@ -96,6 +96,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "black",
     marginTop: 10,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    marginHorizontal: 40,
   },
   mobileImage: {
     width: 92.5,
