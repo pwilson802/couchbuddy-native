@@ -28,6 +28,11 @@
       "StackName": "amplify-couchbuddy-prod-212849",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:766223306101:stack/amplify-couchbuddy-prod-212849/80a045d0-3164-11eb-bbb2-0af4f72f1048",
       "AmplifyAppId": "d2mx3spnxi1zqz"
+    },
+    "categories": {
+      "auth": {
+        "couchbuddy887ff672": {}
+      }
     }
   }
 }
