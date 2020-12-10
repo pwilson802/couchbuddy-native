@@ -77,7 +77,6 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
   const [location, setLocation] = useState("US");
   const [selectedGenres, setSelectedGenres] = useState(genreObj);
   const [selectedProviders, setSelectedProviders] = useState({});
-  // move this line below maybe?
   const [localProviderMovies, setLocalProviderMovies] = useState({});
   const [allProviderData, setAllProviderData] = useState();
   const [duration, setDuration] = useState(400);
@@ -131,10 +130,6 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
     };
     handleSearchDetails(searchData);
     setPage("ResultsPage");
-    // change to page ResultsPage and pass props
-    // run calculation on ResultsPage tgo get movies so a spinner can play while waiting
-    // maybe pass selected providers with moves for filtering
-    // might need to make an object for movies with providers at the end so it can be displayed with each movie.
   };
 
   useEffect(() => {
@@ -142,10 +137,6 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
     setSelectedGenres(genreObj);
     configureProviders(location);
   }, [location]);
-
-  //   console.log("selectedProviders", selectedProviders);
-  //   console.log("localProviderMovies", localProviderMovies);
-  //   console.log("allProviderData", allProviderData);
 
   return (
     <View>
@@ -188,10 +179,10 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
               />
             )}
             {/* <Duration duration={duration} handleDuration={handleDuration} /> */}
-            <TouchableOpacity onPress={handleSubmit}>
+            {/* <TouchableOpacity onPress={handleSubmit}>
               <Text style={styles.submitButton}>Get Movies</Text>
             </TouchableOpacity>
-            <TheMovieDatabase />
+            <TheMovieDatabase /> */}
           </View>
         )}
       </View>

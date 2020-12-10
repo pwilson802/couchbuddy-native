@@ -17,10 +17,11 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
         onPress={() => handleProvider(item)}
         style={selectedProviders[item] ? styles.buttonSelected : styles.button}
       >
-        <Image
+        {/* <Image
           style={styles.providerImage}
           source={allProviderData[item]["logo"]}
-        />
+            /> */}
+        <Text>{item}</Text>
       </TouchableOpacity>
     );
   };
