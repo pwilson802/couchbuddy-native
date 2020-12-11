@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,14 +6,28 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import { useHover, useFocus, useActive } from "react-native-web-hooks";
+import {
+  Heebo_500Medium,
+  Heebo_700Bold,
+  Heebo_800ExtraBold,
+  Heebo_900Black,
+} from "@expo-google-fonts/heebo";
 
 function Genres({ selectedGenres, handleGenre }) {
+  const ref = useRef(null);
+  const isHovered = useHover(ref);
   const data = Object.keys(selectedGenres);
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
         onPress={() => handleGenre(item)}
-        style={selectedGenres[item] ? styles.buttonSelected : styles.button}
+        ref={ref}
+        style={[
+          selectedGenres[item] && styles.buttonSelected,
+          !selectedGenres[item] && styles.button,
+          isHovered && styles.buttonSelected,
+        ]}
       >
         <Text
           style={
@@ -50,24 +64,25 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     margin: 10,
-    borderColor: "#D90404",
+    borderColor: "rgba(254,244,225,.2)",
     borderWidth: 1,
   },
   buttonSelected: {
     padding: 10,
     borderRadius: 10,
     margin: 10,
-    borderColor: "#D90404",
+    borderColor: "rgba(253,215,130,.1)",
     borderWidth: 1,
-    backgroundColor: "#D90404",
+    backgroundColor: "rgba(253,215,130,.1)",
   },
   genreWrapper: {
     flexDirection: "row",
   },
   buttonText: {
-    color: "black",
+    color: "#FEF4E1",
+    fontFamily: Heebo_500Medium,
   },
   buttonTextSelected: {
-    color: "black",
+    color: "#FDD782",
   },
 });

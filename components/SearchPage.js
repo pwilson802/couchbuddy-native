@@ -10,6 +10,12 @@ import Duration from "./Duration";
 import DropDownGenres from "./DropDownGenres";
 import DropDownProviders from "./DropDownProviders";
 import TheMovieDatabase from "./TheMovieDatabase";
+import {
+  Heebo_500Medium,
+  Heebo_700Bold,
+  Heebo_800ExtraBold,
+  Heebo_900Black,
+} from "@expo-google-fonts/heebo";
 
 const genreObj = {
   Action: false,
@@ -215,9 +221,10 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     fontSize: 16,
     borderRadius: 10,
-    borderColor: "#D90404",
+    borderColor: "#FDD782",
     borderWidth: 1,
-    backgroundColor: "#D90404",
+    backgroundColor: "#FDD782",
     alignSelf: "center",
+    fontFamily: Heebo_800ExtraBold,
   },
 });

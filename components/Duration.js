@@ -1,10 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Slider from "@react-native-community/slider";
+import {
+  Heebo_500Medium,
+  Heebo_700Bold,
+  Heebo_800ExtraBold,
+  Heebo_900Black,
+} from "@expo-google-fonts/heebo";
 
 function Duration({ duration, handleDuration }) {
   return (
     <View>
+      <Text style={styles.durationText}>{duration} minutes</Text>
       <View style={styles.durationWrapper}>
         <Slider
           style={styles.slider}
@@ -13,8 +20,10 @@ function Duration({ duration, handleDuration }) {
           value={duration}
           onValueChange={(item) => handleDuration(item)}
           step={1}
+          minimumTrackTintColor={"#F1888F"}
+          maximumTrackTintColor={"rgba(241,136,143,.5)"}
+          thumbTintColor={"#E12C86"}
         />
-        <Text style={styles.durationText}>{duration} minutes</Text>
       </View>
     </View>
   );
@@ -38,15 +47,16 @@ const styles = StyleSheet.create({
     width: 300,
     opacity: 1,
     height: 50,
-    marginTop: 10,
-    marginBottom: -10,
+    marginTop: -10,
     // touchAction: "none",
     // overflow: "hidden",
     // overscrollBehavior: "none",
   },
   durationText: {
     alignSelf: "center",
-    marginBottom: 10,
-    fontSize: 18,
+    marginTop: 10,
+    fontSize: 16,
+    color: "#FEF4E1",
+    fontFamily: Heebo_700Bold,
   },
 });
