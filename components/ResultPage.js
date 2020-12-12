@@ -11,6 +11,7 @@ import { getCouchmovie, getGenre, listMovieLengths } from "../graphql/queries";
 import Logo from "./Logo";
 import MovieCard from "./MovieCard";
 import SpinnerMovie from "./SpinnerMovie";
+import NavButton from "./NavButton";
 
 async function getMoviesByLength(duration) {
   let firstQuery = await API.graphql({
@@ -138,15 +139,15 @@ function ResultsPage({ searchDetails, setPage, width, screenSize }) {
             keyExtractor={(item) => item}
           />
           <View style={styles.buttonBox}>
-            <TouchableOpacity onPress={nextMovies} style={styles.button}>
-              <Text>More</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setPage("SearchPage")}
-              style={styles.button}
-            >
-              <Text>Home</Text>
-            </TouchableOpacity>
+            <View>
+              <NavButton handleSubmit={nextMovies} buttonText={"More"} />
+            </View>
+            <View style={styles.secondButton}>
+              <NavButton
+                handleSubmit={() => setPage("SearchPage")}
+                buttonText={"Home"}
+              />
+            </View>
           </View>
         </View>
       ) : (
@@ -163,6 +164,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 5,
   },
   button: {
     paddingHorizontal: 10,
@@ -173,6 +175,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: "#D90404",
     marginLeft: 20,
+  },
+  secondButton: {
+    marginLeft: 5,
   },
 });
 

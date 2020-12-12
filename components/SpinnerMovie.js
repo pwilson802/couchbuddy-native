@@ -6,7 +6,7 @@ export default function SpinnerMovie() {
   return (
     <View style={styles.spinner}>
       <LottieView
-        source={require("../assets/spinnermovie.json")}
+        source={require("../assets/spinnermovie-dark.json")}
         autoPlay
         loop
       />

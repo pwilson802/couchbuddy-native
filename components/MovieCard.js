@@ -9,6 +9,12 @@ import {
 } from "react-native";
 import { API, graphqlOperation } from "aws-amplify";
 import { getCouchmovie, getGenre, listMovieLengths } from "../graphql/queries";
+import {
+  Heebo_500Medium,
+  Heebo_700Bold,
+  Heebo_800ExtraBold,
+  Heebo_900Black,
+} from "@expo-google-fonts/heebo";
 
 async function getMovieDetails(id) {
   const movieDetails = await API.graphql({
@@ -100,7 +106,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: "black",
+    borderColor: "rgba(150,208,211,0.3)",
     marginTop: 8,
     borderWidth: 1,
     paddingHorizontal: 5,
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    borderColor: "black",
+    borderColor: "rgba(150,208,211,0.3)",
     marginTop: 8,
     borderWidth: 1,
     paddingHorizontal: 5,
@@ -132,9 +138,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+    color: "white",
   },
   runtime: {
-    color: "grey",
+    color: "white",
     fontStyle: "italic",
   },
   providerImage: {
@@ -145,6 +152,8 @@ const styles = StyleSheet.create({
   },
   overview: {
     paddingBottom: 5,
+    color: "white",
+    fontFamily: Heebo_700Bold,
   },
   providerWrapper: {
     flexDirection: "row",

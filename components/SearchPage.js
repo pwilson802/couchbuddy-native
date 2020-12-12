@@ -10,6 +10,7 @@ import Duration from "./Duration";
 import DropDownGenres from "./DropDownGenres";
 import DropDownProviders from "./DropDownProviders";
 import TheMovieDatabase from "./TheMovieDatabase";
+import NavButton from "./NavButton";
 import {
   Heebo_500Medium,
   Heebo_700Bold,
@@ -158,6 +159,10 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
             />
           </View>
         </View>
+        <Text style={styles.introText}>
+          Not sure what movie to watch tonight? Let couch buddy help you out
+          with some suggestions.
+        </Text>
         {loaded && (
           <View>
             {width < 700 ? (
@@ -185,9 +190,7 @@ function SearchPage({ handleSearchDetails, setPage, width }) {
               />
             )}
             <Duration duration={duration} handleDuration={handleDuration} />
-            <TouchableOpacity onPress={handleSubmit}>
-              <Text style={styles.submitButton}>Get Movies</Text>
-            </TouchableOpacity>
+            <NavButton handleSubmit={handleSubmit} buttonText={"Get Movies"} />
             <TheMovieDatabase />
           </View>
         )}
@@ -226,5 +229,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#FDD782",
     alignSelf: "center",
     fontFamily: Heebo_800ExtraBold,
+  },
+  introText: {
+    fontFamily: Heebo_800ExtraBold,
+    color: "rgba(255,255,255,0.6)",
+    textAlign: "center",
+    fontSize: 12,
+    marginBottom: 5,
   },
 });

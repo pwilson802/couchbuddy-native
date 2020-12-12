@@ -41,17 +41,6 @@ function Providers({ selectedProviders, handleProvider, allProviderData }) {
           </TouchableOpacity>
         );
       })}
-      {/* <FlatList
-        contentContainerStyle={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        data={providerIDs}
-        renderItem={renderItem}
-        keyExtractor={(item) => item}
-      /> */}
     </View>
   );
 }
@@ -64,7 +53,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 0,
     display: "inline",
-    opacity: 0.5,
+    opacity: 0.4,
   },
   buttonSelected: {
     borderRadius: 10,

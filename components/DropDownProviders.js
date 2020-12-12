@@ -13,7 +13,7 @@ function DropDownProviders({
   return (
     <View>
       <TouchableOpacity onPress={() => setShow(!show)}>
-        <Text style={styles.dropText}>Providers &darr; &darr; </Text>
+        <Text style={styles.dropText}>PROVIDERS</Text>
       </TouchableOpacity>
       {show && (
         <Providers
@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     fontSize: 16,
-    borderColor: "#BF863F",
-    borderWidth: 1,
-    backgroundColor: "#BF863F",
+    backgroundColor: "rgba(150,208,211,0.2)",
     marginTop: 10,
+    color: "#96D0D3",
+    textAlign: "center",
   },
 });

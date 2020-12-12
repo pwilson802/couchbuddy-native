@@ -8,7 +8,7 @@ function DropDownGenres({ selectedGenres, handleGenre }) {
   return (
     <View>
       <TouchableOpacity onPress={() => setShow(!show)}>
-        <Text style={styles.dropText}>Genres &darr; &darr; </Text>
+        <Text style={styles.dropText}>GENRES</Text>
       </TouchableOpacity>
       {show && (
         <Genres selectedGenres={selectedGenres} handleGenre={handleGenre} />
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     fontSize: 16,
-    borderColor: "#D90404",
-    borderWidth: 1,
-    backgroundColor: "#D90404",
+    backgroundColor: "rgba(241, 136, 143,0.3)",
+    textAlign: "center",
+    color: "#F1888F",
   },
 });
