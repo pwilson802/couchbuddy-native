@@ -133,6 +133,9 @@ function ResultsPage({ searchDetails, setPage, width, screenSize }) {
     <View>
       {loaded ? (
         <View>
+          <TouchableOpacity onPress={() => setPage("SearchPage")}>
+            <Logo />
+          </TouchableOpacity>
           <FlatList
             data={activeMovies}
             renderItem={renderMovieCard}
@@ -142,12 +145,12 @@ function ResultsPage({ searchDetails, setPage, width, screenSize }) {
             <View>
               <NavButton handleSubmit={nextMovies} buttonText={"More"} />
             </View>
-            <View style={styles.secondButton}>
+            {/* <View style={styles.secondButton}>
               <NavButton
                 handleSubmit={() => setPage("SearchPage")}
                 buttonText={"Home"}
               />
-            </View>
+            </View> */}
           </View>
         </View>
       ) : (
@@ -177,7 +180,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   secondButton: {
-    marginLeft: 5,
+    marginLeft: 20,
   },
 });
 
