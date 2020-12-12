@@ -132,7 +132,7 @@ function ResultsPage({ searchDetails, setPage, width, screenSize }) {
   return (
     <View>
       {loaded ? (
-        <View>
+        <View style={styles.resultsWrap}>
           <TouchableOpacity onPress={() => setPage("SearchPage")}>
             <Logo />
           </TouchableOpacity>
@@ -181,6 +181,9 @@ const styles = StyleSheet.create({
   },
   secondButton: {
     marginLeft: 20,
+  },
+  resultsWrap: {
+    margin: 10,
   },
 });
 
