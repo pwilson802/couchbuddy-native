@@ -7,6 +7,7 @@ import LocationSelect from "./LocationSelect";
 import Genres from "./Genres";
 import Providers from "./Providers";
 import Duration from "./Duration";
+import DurationNumber from "./DurationNumber";
 import DropDownGenres from "./DropDownGenres";
 import DropDownProviders from "./DropDownProviders";
 import TheMovieDatabase from "./TheMovieDatabase";
@@ -209,8 +210,6 @@ const styles = StyleSheet.create({
   nav: {
     margin: 10,
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
     flex: 1,
   },
   locationWrap: {

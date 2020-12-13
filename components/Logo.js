@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   },
   logo: {
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "flex-end",
   },
   logoText: {
